@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #0B0F19;
+  --surface: #111827;
+  --primary: #007BFF;
+  --accent: #00D9FF;
+  --purple: #6C63FF;
+  --foreground: #EAF2FF;
+  --muted: #4B5563;
+  --border: #1E2A3A;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+/* ── Cyber grid background ── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 123, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 123, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glow utilities ── */
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 123, 255, 0.6), 0 0 40px rgba(0, 123, 255, 0.3);
+}
+
+.text-glow-accent {
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(0, 217, 255, 0.3);
+}
+
+.border-glow {
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.3), 0 0 20px rgba(0, 123, 255, 0.1);
+}
+
+/* ── Animated scan line ── */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: scan 4s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* ── Hex clip ── */
+.hex-clip {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* ── Glitch text animation ── */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* ── Typing cursor ── */
+.typing-cursor::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Tag styles ── */
+.tag-wazuh { background: rgba(0, 123, 255, 0.15); color: #007BFF; border-color: rgba(0, 123, 255, 0.3); }
+.tag-elk { background: rgba(0, 217, 255, 0.15); color: #00D9FF; border-color: rgba(0, 217, 255, 0.3); }
+.tag-docker { background: rgba(108, 99, 255, 0.15); color: #6C63FF; border-color: rgba(108, 99, 255, 0.3); }
+.tag-python { background: rgba(0, 217, 255, 0.15); color: #00D9FF; border-color: rgba(0, 217, 255, 0.3); }
+.tag-default { background: rgba(255, 255, 255, 0.05); color: #9CA3AF; border-color: rgba(255, 255, 255, 0.1); }
+
+/* ── Section entrance ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
