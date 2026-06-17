@@ -11,6 +11,7 @@ import {
   getSkillsByCategory,
   getExperiences,
 } from "@/lib/notion";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 // Fallback data for when Notion isn't configured
 const FALLBACK_PROJECTS = [
@@ -18,7 +19,8 @@ const FALLBACK_PROJECTS = [
     id: "1",
     slug: "soc-home-lab",
     title: "SOC Home Lab",
-    description: "Environnement complet de supervision et de détection d'incidents avec Wazuh, ELK et TheHive.",
+    description:
+      "Environnement complet de supervision et de détection d'incidents avec Wazuh, ELK et TheHive.",
     tags: ["WAZUH", "ELK", "THEHIVE"],
     category: "Lab" as const,
     githubUrl: "#",
@@ -42,7 +44,8 @@ const FALLBACK_PROJECTS = [
     id: "3",
     slug: "automation-soc",
     title: "Phishing Detection",
-    description: "Scripts d'automatisation pour la collecte de logs et la réponse aux incidents.",
+    description:
+      "Scripts d'automatisation pour la collecte de logs et la réponse aux incidents.",
     tags: ["PYTHON", "ML", "API"],
     category: "Automation" as const,
     githubUrl: "#",
@@ -52,7 +55,10 @@ const FALLBACK_PROJECTS = [
   },
 ];
 
-const FALLBACK_SKILLS: Record<string, { id: string; name: string; level: number }[]> = {
+const FALLBACK_SKILLS: Record<
+  string,
+  { id: string; name: string; level: number }[]
+> = {
   "Blue Team": [
     { id: "1", name: "SIEM", level: 85 },
     { id: "2", name: "Threat Hunting", level: 75 },
@@ -60,14 +66,14 @@ const FALLBACK_SKILLS: Record<string, { id: string; name: string; level: number 
     { id: "4", name: "Log Analysis", level: 90 },
     { id: "5", name: "Malware Analysis", level: 65 },
   ],
-  "Outils": [
+  Outils: [
     { id: "6", name: "Splunk", level: 85 },
     { id: "7", name: "Wazuh", level: 90 },
     { id: "8", name: "ELK Stack", level: 80 },
     { id: "9", name: "Microsoft Sentinel", level: 70 },
     { id: "10", name: "Wireshark", level: 75 },
   ],
-  "Scripting": [
+  Scripting: [
     { id: "11", name: "Python", level: 80 },
     { id: "12", name: "Bash", level: 75 },
     { id: "13", name: "PowerShell", level: 70 },
@@ -158,6 +164,7 @@ export default async function Home() {
       <SkillsPreview skillsByCategory={skillsByCategory} />
       <FeaturedProjects projects={projects} />
       <Timeline experiences={experiences} />
+      <TestimonialsSection />
       <ContactCTA />
     </>
   );
