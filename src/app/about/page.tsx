@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Shield, MapPin, GraduationCap, Download, Mail, Phone } from "lucide-react";
+import {
+  Shield,
+  MapPin,
+  GraduationCap,
+  Download,
+  Mail,
+  Phone,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Timeline } from "@/components/sections/Timeline";
@@ -7,23 +14,72 @@ import { getExperiences } from "@/lib/notion";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: "En savoir plus sur mon parcours en cybersécurité, Blue Team et SOC.",
+  description:
+    "En savoir plus sur mon parcours en cybersécurité, Blue Team et SOC.",
 };
 
 export const revalidate = 3600;
 
 const FALLBACK_EXPERIENCES = [
-  { id: "1", title: "Analyste SOC (Stage)", company: "", type: "Stage" as const, startDate: "2024-01-01", description: "Surveillance, détection et analyse d'incidents de sécurité.", year: "2024" },
-  { id: "2", title: "Projets & Labs", company: "", type: "Projet" as const, startDate: "2023-01-01", description: "Labs TryHackMe, HackTheBox, CTF et projets personnels.", year: "2023" },
-  { id: "3", title: "Certification", company: "Google Cybersecurity Professional — TryHackMe SOC Level 1", type: "Certification" as const, startDate: "2022-01-01", description: "Google Cybersecurity Professional — TryHackMe SOC Level 1.", year: "2022" },
-  { id: "4", title: "Études", company: "", type: "Études" as const, startDate: "2021-01-01", description: "Licence en Sécurité des Systèmes d'Information.", year: "2021" },
+  {
+    id: "1",
+    title: "Master Cybersécurité (Études)",
+    company: "",
+    type: "Études" as const,
+    startDate: "2026-01-01",
+    description:
+      "Master Cybersécurité à l'ESGI. Spécialisation en détection d'incidents, SOC et sécurité défensive.",
+    year: "2026-2028",
+  },
+  {
+    id: "2",
+    title: "Mastère Systèmes, Réseaux & Cybersécurité (Études)",
+    company: "",
+    type: "Études" as const,
+    startDate: "2025-01-01",
+    description:
+      "Mastère Ingénierie Système, Réseaux & Cybersécurité à l'IEF2I.",
+    year: "2025-2026",
+  },
+  {
+    id: "3",
+    title: "Analyste SOC (Stage)",
+    company: "Port de Cotonou (PAC)",
+    type: "Stage" as const,
+    startDate: "2024-01-01",
+    description:
+      "Stage de 6 mois au PAC : détection, analyse et qualification d'incidents, implémentation d'un SIEM (Wazuh) et réponse automatisée aux ransomwares.",
+    year: "2024",
+  },
+  {
+    id: "4",
+    title: "Assistant Technicien IT (Stage)",
+    company: "Bank Of Africa",
+    type: "Stage" as const,
+    startDate: "2023-01-01",
+    description:
+      "Stage de 3 mois à Bank Of Africa : support utilisateurs, gestion des comptes et accès, configuration d'équipements réseau.",
+    year: "2023",
+  },
+  {
+    id: "5",
+    title: "Bachelor Sécurité Informatique (Études)",
+    company: "",
+    type: "Études" as const,
+    startDate: "2021-01-01",
+    description: "Bachelor Sécurité Informatique à l'ESGIS.",
+    year: "2021–2024",
+  },
 ];
 
 async function getData() {
   try {
-    if (!process.env.NOTION_TOKEN || !process.env.NOTION_EXPERIENCES_DB_ID) return FALLBACK_EXPERIENCES;
+    if (!process.env.NOTION_TOKEN || !process.env.NOTION_EXPERIENCES_DB_ID)
+      return FALLBACK_EXPERIENCES;
     return await getExperiences();
-  } catch { return FALLBACK_EXPERIENCES; }
+  } catch {
+    return FALLBACK_EXPERIENCES;
+  }
 }
 
 export default async function AboutPage() {
@@ -40,13 +96,19 @@ export default async function AboutPage() {
             <div className="relative w-64 h-72">
               <div
                 className="w-full h-full bg-[#111827] border-2 border-[#007BFF]/40 flex items-center justify-center"
-                style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                style={{
+                  clipPath:
+                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                }}
               >
                 <Shield className="text-[#007BFF]/50 w-24 h-24" />
               </div>
               <div
                 className="absolute inset-[-8px] border border-[#007BFF]/10 animate-pulse-slow"
-                style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                style={{
+                  clipPath:
+                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                }}
               />
             </div>
           </div>
@@ -54,38 +116,44 @@ export default async function AboutPage() {
           {/* Info */}
           <div>
             <h2 className="font-orbitron text-xl font-bold text-[#EAF2FF] mb-6 uppercase tracking-wider">
-              SOC Analyst <span className="text-[#007BFF]">Blue Team</span>
+              FUTUR <span className="text-[#007BFF]">ANALYSTE SOC</span> /{" "}
+              <span className="text-[#007BFF]">CYBERSÉCURITÉ</span>
             </h2>
             <p className="text-[#9CA3AF] leading-relaxed mb-4">
-              Passionné par la cybersécurité défensive, je me spécialise dans la surveillance
-              des systèmes, l'analyse des journaux, la détection d'incidents et la réponse
-              aux menaces.
+              Étudiant en Master Cybersécurité, je me forme à la défense des
+              systèmes d'information : surveillance, analyse des journaux,
+              détection d'incidents et réponse aux menaces. J'ai déjà mis les
+              mains dans le cambouis en environnement SOC, et je continue à
+              monter en compétences sur les volets systèmes et réseaux.
             </p>
             <p className="text-[#9CA3AF] leading-relaxed mb-8">
-              Mon objectif : protéger les infrastructures, anticiper les attaques et renforcer
-              la posture de sécurité des organisations.
+              <span className="text-[#007BFF]">Mon objectif :</span> contribuer
+              à la sécurité et au bon fonctionnement d'un SI, que ce soit côté
+              SOC/cybersécurité, systèmes & réseaux ou support IT. Je recherche
+              une alternance de 24 mois, disponible dès septembre 2026, pour
+              transformer mes acquis en véritable expertise terrain.
             </p>
 
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <GraduationCap size={16} className="text-[#007BFF]" />
-                <span>Licence en Sécurité des Systèmes d'Information</span>
+                <span>Master Cybersécurité — ESGI</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <MapPin size={16} className="text-[#007BFF]" />
-                <span>Côte d'Ivoire</span>
+                <span>Paris (75) — Mobilité nationale</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <Mail size={16} className="text-[#007BFF]" />
-                <span>youremail@gmail.com</span>
+                <span>hopefuldossou1@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <Phone size={16} className="text-[#007BFF]" />
-                <span>+225 07 12 34 56 78</span>
+                <span>+33 7 69 04 41 65</span>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 uppercase">
               <Button href="/cv.pdf" external>
                 <Download size={16} />
                 Télécharger mon CV

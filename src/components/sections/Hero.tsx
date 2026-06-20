@@ -1,122 +1,8 @@
-// "use client";
-
-// import Image from "next/image";
-// import { Github, ArrowRight } from "lucide-react";
-// import { Button } from "@/components/ui/Button";
-// import img from "../../../public/images/soc-dashboard.jpeg";
-
-// export function Hero() {
-//   return (
-//     <section className="relative min-h-screen overflow-hidden bg-[#050B18] pt-28 md:pt-24 pb-24 md:pb-32">
-//       {/* Background image desktop */}
-//       <div className="absolute inset-0 hidden md:block">
-//         <Image
-//           src={img}
-//           alt="SOC Dashboard"
-//           fill
-//           priority
-//           className="object-cover object-right"
-//         />
-
-//         {/* Overlay plus léger */}
-//         <div className="absolute inset-0 bg-[#050B18]/40" />
-
-//         {/* Gradient gauche */}
-//         <div className="absolute inset-0 bg-gradient-to-r from-[#050B18] via-[#050B18]/75 to-transparent" />
-
-//         {/* Vignette */}
-//         <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-transparent to-[#050B18]/20" />
-//       </div>
-
-//       {/* Grid overlay */}
-//       <div className="absolute inset-0 bg-grid opacity-10" />
-
-//       {/* Glow */}
-//       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#007BFF]/10 blur-3xl" />
-
-//       {/* Content */}
-//       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-//         <div className="max-w-xl">
-//           {/* Badge */}
-//           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-md border border-green-400/20 bg-black/20 backdrop-blur-sm">
-//             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-
-//             <span className="text-[11px] tracking-[0.2em] uppercase text-green-400 font-medium">
-//               Monitoring Active
-//             </span>
-//           </div>
-
-//           {/* Titre */}
-//           <h1 className="font-orbitron mb-6">
-//             <span className="block text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-white">
-//               SOC ANALYST
-//             </span>
-
-//             <span className="block mt-2 text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-[#1E6BFF]">
-//               BLUE TEAM
-//             </span>
-//           </h1>
-
-//           {/* Image mobile */}
-//           <div className="relative w-full h-56 mb-8 rounded-xl overflow-hidden border border-white/10 md:hidden">
-//             <Image
-//               src={img}
-//               alt="SOC Dashboard"
-//               fill
-//               priority
-//               className="object-cover"
-//             />
-
-//             <div className="absolute inset-0 bg-[#050B18]/20" />
-//           </div>
-
-//           {/* Sous-titre */}
-//           <p className="text-white text-lg md:text-xl mb-5">
-//             Monitoring. Detecting. Responding.
-//           </p>
-
-//           {/* Description */}
-//           <p className="text-[#A3A8B8] text-base md:text-lg leading-relaxed mb-10 max-w-lg">
-//             Analyste en cybersécurité spécialisé en défense des systèmes,
-//             détection d&apos;incidents et réponse aux menaces.
-//           </p>
-
-//           {/* Boutons */}
-//           <div className="flex flex-wrap gap-4">
-//             <Button
-//               href="/projects"
-//               size="lg"
-//               className="bg-[#1E6BFF] hover:bg-[#2A7BFF]"
-//             >
-//               Voir mes projets
-//               <ArrowRight size={16} />
-//             </Button>
-
-//             <Button
-//               href="https://github.com"
-//               variant="outline"
-//               size="lg"
-//               external
-//               className="border-white/20 bg-black/20 backdrop-blur-sm text-white hover:bg-white/10"
-//             >
-//               Mon GitHub
-//               <Github size={16} />
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Fade bas */}
-//       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050B18] to-transparent" />
-//     </section>
-//   );
-// }
-
 "use client";
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Github, ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 import img from "../../../public/images/soc-dashboard.jpeg";
@@ -165,9 +51,7 @@ export function Hero() {
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(n2.x, n2.y);
-            ctx.strokeStyle = `rgba(30, 107, 255, ${
-              0.15 * (1 - dist / 100)
-            })`;
+            ctx.strokeStyle = `rgba(30, 107, 255, ${0.15 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -208,7 +92,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#050B18] pt-28 md:pt-24 pb-24 md:pb-32">
-
       {/* Background image desktop */}
       <div className="absolute inset-0 hidden md:block">
         <Image
@@ -236,7 +119,6 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
         <div className="max-w-xl">
-
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-md border border-green-400/20 bg-black/20 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -249,11 +131,11 @@ export function Hero() {
           {/* Title */}
           <h1 className="font-orbitron mb-6">
             <span className="block text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-white">
-              SOC ANALYST
+              ASPIRING
             </span>
 
             <span className="block mt-2 text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-[#1E6BFF]">
-              BLUE TEAM
+              SOC ANALYST
             </span>
           </h1>
 
@@ -276,33 +158,34 @@ export function Hero() {
 
           {/* Description */}
           <p className="text-[#A3A8B8] text-base md:text-lg leading-relaxed mb-10 max-w-lg">
-            Analyste en cybersécurité spécialisé en défense des systèmes,
-            détection d&apos;incidents et réponse aux menaces.
+            Étudiant en Master Cybersécurité — en route vers le métier
+            d'analyste SOC. Défense des systèmes, détection d'incidents et
+            réponse aux menaces.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 uppercase">
             <Button
               href="/projects"
               size="lg"
-              className="bg-[#1E6BFF] hover:bg-[#2A7BFF]"
+              className="bg-[#1E6BFF]  hover:bg-[#2A7BFF]"
             >
-              Voir mes projets
+              Voir mes Projets
               <ArrowRight size={16} />
             </Button>
 
             <Button
-              href="https://github.com"
+              href="/cv.pdf"
+              external
               variant="outline"
               size="lg"
-              external
               className="border-white/20 bg-black/20 backdrop-blur-sm text-white hover:bg-white/10"
             >
-              Mon GitHub
-              <Github size={16} />
+              {" "}
+              Télécharger mon CV
+              <Download size={16} />
             </Button>
           </div>
-
         </div>
       </div>
 

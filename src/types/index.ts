@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
+  projectType?: string;
   tags: string[];
   category: "SOC" | "Lab" | "Automation" | "Detection" | "Other";
   githubUrl?: string;
@@ -20,8 +21,9 @@ export interface Skill {
   id: string;
   name: string;
   category: "Blue Team" | "Outils" | "Scripting" | "Systèmes & Réseaux";
-  level: number; // 0-100
+  level: number;
   icon?: string;
+  levelLabel?: string;
 }
 
 export interface SkillCategory {
@@ -34,7 +36,13 @@ export interface Experience {
   id: string;
   title: string;
   company: string;
-  type: "Stage" | "Emploi" | "Projet" | "Formation" | "Certification" | "Études";
+  type:
+    | "Stage"
+    | "Emploi"
+    | "Projet"
+    | "Formation"
+    | "Certification"
+    | "Études";
   startDate: string;
   endDate?: string;
   description: string;

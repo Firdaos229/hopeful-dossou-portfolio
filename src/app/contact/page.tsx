@@ -28,19 +28,19 @@ export default function ContactPage() {
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "youremail@gmail.com",
-                  href: "mailto:youremail@gmail.com",
+                  value: "hopefuldossou1@gmail.com",
+                  href: "mailto:hopefuldossou1@gmail.com",
                 },
                 {
                   icon: Phone,
                   label: "Téléphone",
-                  value: "+225 07 12 34 56 78",
-                  href: "tel:+2250712345678",
+                  value: "+33 7 69 04 41 65",
+                  href: "tel:+33769044165",
                 },
                 {
                   icon: MapPin,
                   label: "Localisation",
-                  value: "Côte d'Ivoire",
+                  value: "Paris (75) — Mobilité nationale",
                   href: null,
                 },
                 {
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   },
                   {
                     icon: Mail,
-                    href: "mailto:youremail@gmail.com",
+                    href: "mailto:hopefuldossou1@gmail.com",
                     label: "Email",
                   },
                 ].map(({ icon: Icon, href, label }) => (
