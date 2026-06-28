@@ -244,7 +244,7 @@ export function SkillsPreview({ skillsByCategory }: SkillsPreviewProps) {
                     <span>
                       {skill.name}
                       <span className="text-[#29B6FF] ml-1">
-                        — {skill.levelLabel}
+                        - {skill.levelLabel}
                       </span>
                     </span>
                   </li>

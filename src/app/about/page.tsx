@@ -12,6 +12,9 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Timeline } from "@/components/sections/Timeline";
 import { getExperiences } from "@/lib/notion";
 
+import Image from "next/image";
+import profile from "../../../public/images/hopeful-dossou.jpeg";
+
 export const metadata: Metadata = {
   title: "À propos",
   description:
@@ -92,7 +95,7 @@ export default async function AboutPage() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
           {/* Avatar */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className="relative w-64 h-72">
               <div
                 className="w-full h-full bg-[#111827] border-2 border-[#007BFF]/40 flex items-center justify-center"
@@ -111,22 +114,53 @@ export default async function AboutPage() {
                 }}
               />
             </div>
+          </div> */}
+          <div className="flex justify-center">
+            <div className="relative w-56 h-64">
+              <div
+                className="relative w-full h-full overflow-hidden border-2 border-[#007BFF]/40 bg-[#111827]"
+                style={{
+                  clipPath:
+                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                }}
+              >
+                <Image
+                  src={profile}
+                  alt="Photo de profil de Hopeful Dossou"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+
+                {/* Overlay sombre */}
+                <div className="absolute inset-0 bg-[#007BFF]/10" />
+              </div>
+
+              {/* Glow ring */}
+              <div
+                className="absolute inset-0 border-2 border-[#007BFF]/20 animate-pulse"
+                style={{
+                  clipPath:
+                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                }}
+              />
+            </div>
           </div>
 
           {/* Info */}
-          <div>
+          <div className="text-justify leading-relaxed">
             <h2 className="font-orbitron text-xl font-bold text-[#EAF2FF] mb-6 uppercase tracking-wider">
               FUTUR <span className="text-[#007BFF]">ANALYSTE SOC</span> /{" "}
               <span className="text-[#007BFF]">CYBERSÉCURITÉ</span>
             </h2>
-            <p className="text-[#9CA3AF] leading-relaxed mb-4">
+            <p className="text-[#9CA3AF] mb-4">
               Étudiant en Master Cybersécurité, je me forme à la défense des
-              systèmes d'information : surveillance, analyse des journaux,
-              détection d'incidents et réponse aux menaces. J'ai déjà mis les
-              mains dans le cambouis en environnement SOC, et je continue à
-              monter en compétences sur les volets systèmes et réseaux.
+              systèmes d'information, à la gouvernance et à l'audit de
+              cybersécurité. J'ai déjà mis les mains dans le cambouis en
+              environnement SOC, et je continue à monter en compétences sur les
+              volets systèmes et réseaux.
             </p>
-            <p className="text-[#9CA3AF] leading-relaxed mb-8">
+            <p className="text-[#9CA3AF]  mb-8">
               <span className="text-[#007BFF]">Mon objectif :</span> contribuer
               à la sécurité et au bon fonctionnement d'un SI, que ce soit côté
               SOC/cybersécurité, systèmes & réseaux ou support IT. Je recherche
@@ -137,11 +171,11 @@ export default async function AboutPage() {
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <GraduationCap size={16} className="text-[#007BFF]" />
-                <span>Master Cybersécurité — ESGI</span>
+                <span>Master Cybersécurité - ESGI</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <MapPin size={16} className="text-[#007BFF]" />
-                <span>Paris (75) — Mobilité nationale</span>
+                <span>Paris (75) - Mobilité nationale</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <Mail size={16} className="text-[#007BFF]" />

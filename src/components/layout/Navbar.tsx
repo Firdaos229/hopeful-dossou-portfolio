@@ -48,7 +48,7 @@ export function Navbar() {
               <div className="absolute inset-0 rounded animate-pulse-slow border border-[#007BFF]/20" />
             </div>
             <span className="font-mono text-sm text-[#EAF2FF] tracking-wider">
-              SOC-ANALYST
+             D. Hopeful
             </span>
           </Link>
 
@@ -76,9 +76,9 @@ export function Navbar() {
                 />
               </Link>
             ))}
-            <button className="ml-2 p-2 text-[#4B5563] hover:text-[#007BFF] transition-colors">
+            {/* <button className="ml-2 p-2 text-[#4B5563] hover:text-[#007BFF] transition-colors">
               <Settings size={16} />
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile toggle */}

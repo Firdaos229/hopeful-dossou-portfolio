@@ -124,18 +124,18 @@ export function Hero() {
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
 
             <span className="text-[11px] tracking-[0.2em] uppercase text-green-400 font-medium">
-              Monitoring Active
+              Open to work
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="font-orbitron mb-6">
+          <h1 className="font-orbitron mb-6 uppercase">
             <span className="block text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-white">
-              ASPIRING
+              Cybersecurity
             </span>
 
             <span className="block mt-2 text-5xl md:text-7xl font-black tracking-wider leading-none uppercase text-[#1E6BFF]">
-              SOC ANALYST
+              Analyst
             </span>
           </h1>
 
@@ -153,14 +153,14 @@ export function Hero() {
 
           {/* Tagline */}
           <p className="text-white text-lg md:text-xl mb-5">
-            Monitoring. Detecting. Responding.
+            Govern. Audit. Defend.
           </p>
 
           {/* Description */}
-          <p className="text-[#A3A8B8] text-base md:text-lg leading-relaxed mb-10 max-w-lg">
-            Étudiant en Master Cybersécurité — en route vers le métier
-            d'analyste SOC. Défense des systèmes, détection d'incidents et
-            réponse aux menaces.
+          <p className="text-[#A3A8B8] text-base md:text-lg text-justify leading-relaxed mb-10 max-w-lg">
+            Étudiant en Master Cybersécurité - en route vers le métier
+            d'Analyste Cybersécurité. Défense des systèmes, détection
+            d'incidents, réponse aux menaces, audit et gouvernance.
           </p>
 
           {/* Buttons */}

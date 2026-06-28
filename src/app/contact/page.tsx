@@ -40,7 +40,7 @@ export default function ContactPage() {
                 {
                   icon: MapPin,
                   label: "Localisation",
-                  value: "Paris (75) — Mobilité nationale",
+                  value: "Paris (75) - Mobilité nationale",
                   href: null,
                 },
                 {
@@ -79,10 +79,10 @@ export default function ContactPage() {
               </p>
               <div className="flex gap-3">
                 {[
-                  { icon: Github, href: "https://github.com", label: "GitHub" },
+                  { icon: Github, href: "https://github.com/Hopeful-DOSSOU", label: "GitHub" },
                   {
                     icon: Linkedin,
-                    href: "https://linkedin.com",
+                    href: "http://www.linkedin.com/in/hopeful-dossou",
                     label: "LinkedIn",
                   },
                   {
