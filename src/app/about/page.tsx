@@ -93,30 +93,10 @@ export default async function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <SectionTitle>À Propos</SectionTitle>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
+        <div className="grid md:grid-cols-2 gap-12 items-stretch mb-20 min-h-[650px]">
           {/* Avatar */}
-          {/* <div className="flex justify-center">
-            <div className="relative w-64 h-72">
-              <div
-                className="w-full h-full bg-[#111827] border-2 border-[#007BFF]/40 flex items-center justify-center"
-                style={{
-                  clipPath:
-                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                }}
-              >
-                <Shield className="text-[#007BFF]/50 w-24 h-24" />
-              </div>
-              <div
-                className="absolute inset-[-8px] border border-[#007BFF]/10 animate-pulse-slow"
-                style={{
-                  clipPath:
-                    "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                }}
-              />
-            </div>
-          </div> */}
-          <div className="flex justify-center">
-            <div className="relative w-56 h-64">
+          <div className="flex justify-center items-center">
+            <div className="relative w-[420px] h-[520px]">
               <div
                 className="relative w-full h-full overflow-hidden border-2 border-[#007BFF]/40 bg-[#111827]"
                 style={{
@@ -153,6 +133,7 @@ export default async function AboutPage() {
               FUTUR <span className="text-[#007BFF]">ANALYSTE SOC</span> /{" "}
               <span className="text-[#007BFF]">CYBERSÉCURITÉ</span>
             </h2>
+
             <p className="text-[#9CA3AF] mb-4">
               Étudiant en Master Cybersécurité, je me forme à la défense des
               systèmes d'information, à la gouvernance et à l'audit de
@@ -160,7 +141,8 @@ export default async function AboutPage() {
               environnement SOC, et je continue à monter en compétences sur les
               volets systèmes et réseaux.
             </p>
-            <p className="text-[#9CA3AF]  mb-8">
+
+            <p className="text-[#9CA3AF] mb-8">
               <span className="text-[#007BFF]">Mon objectif :</span> contribuer
               à la sécurité et au bon fonctionnement d'un SI, que ce soit côté
               SOC/cybersécurité, systèmes & réseaux ou support IT. Je recherche
@@ -173,14 +155,17 @@ export default async function AboutPage() {
                 <GraduationCap size={16} className="text-[#007BFF]" />
                 <span>Master Cybersécurité - ESGI</span>
               </div>
+
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <MapPin size={16} className="text-[#007BFF]" />
                 <span>Paris (75) - Mobilité nationale</span>
               </div>
+
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <Mail size={16} className="text-[#007BFF]" />
                 <span>hopefuldossou1@gmail.com</span>
               </div>
+
               <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                 <Phone size={16} className="text-[#007BFF]" />
                 <span>+33 7 69 04 41 65</span>
@@ -192,6 +177,7 @@ export default async function AboutPage() {
                 <Download size={16} />
                 Télécharger mon CV
               </Button>
+
               <Button href="/contact" variant="outline">
                 Me contacter
               </Button>

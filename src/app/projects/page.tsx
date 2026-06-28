@@ -1,15 +1,12 @@
-// import type { Metadata } from "next";
-// import { getProjects } from "@/lib/notion";
-// import { ProjectCard } from "@/components/ui/ProjectCard";
-// import { SectionTitle } from "@/components/ui/SectionTitle";
+"use client";
 
-// export const metadata: Metadata = {
-//   title: "Projets",
-//   description:
-//     "Découvrez mes projets en cybersécurité, SOC, Blue Team et automatisation.",
-// };
-
-// export const revalidate = 3600;
+import type { Metadata } from "next";
+import { useState } from "react";
+import { getProjects } from "@/lib/notion";
+import { ProjectCard } from "@/components/ui/ProjectCard";
+import { ProjectModal } from "@/components/ui/ProjectModal";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import type { Project } from "@/types";
 
 // const FALLBACK_PROJECTS = [
 //   {
@@ -99,46 +96,6 @@
 //   },
 // ];
 
-// const CATEGORIES = ["Tous", "SOC", "Lab", "Automation", "Detection"];
-
-// async function getProjectsData() {
-//   try {
-//     if (!process.env.NOTION_TOKEN || !process.env.NOTION_PROJECTS_DB_ID)
-//       return FALLBACK_PROJECTS;
-//     return await getProjects();
-//   } catch {
-//     return FALLBACK_PROJECTS;
-//   }
-// }
-
-// export default async function ProjectsPage() {
-//   const projects = await getProjectsData();
-
-//   return (
-//     <div className="min-h-screen pt-24">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-//         <SectionTitle>Projets</SectionTitle>
-
-//         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {projects.map((project) => (
-//             <ProjectCard key={project.id} project={project} />
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-"use client";
-
-import type { Metadata } from "next";
-import { useState } from "react";
-import { getProjects } from "@/lib/notion";
-import { ProjectCard } from "@/components/ui/ProjectCard";
-import { ProjectModal } from "@/components/ui/ProjectModal";
-import { SectionTitle } from "@/components/ui/SectionTitle";
-import type { Project } from "@/types";
-
 const FALLBACK_PROJECTS = [
   {
     id: "1",
@@ -154,10 +111,102 @@ const FALLBACK_PROJECTS = [
     featured: true,
     status: "Completed" as const,
     createdAt: "2025-06-01",
+    coverImage: "/images/projects/siem.jpeg",
   },
 
   {
     id: "2",
+    slug: "malware-analysis-lab",
+    title: "Analyse complète d'un malware",
+    projectType: "Malware Analysis",
+    description:
+      "Analyse statique, dynamique et mémoire d'un malware avec corrélation des artefacts et rédaction d'un rapport technique.",
+    longDescription: `Analyse complète d'un malware en environnement isolé : analyse statique, dynamique et mémoire, corrélation des artefacts et rédaction d'un rapport technique avec IOC.
+
+Au cours de ce projet, j’ai travaillé sur :
+- Analyse statique avec rabin2/radare2
+- Analyse dynamique avec les outils Sysinternals
+- Analyse mémoire avec Volatility 3
+- Corrélation des artefacts système, réseau et mémoire
+- Rédaction d’un rapport technique structuré avec IOC et preuves d’analyse`,
+    tags: [
+      "RADARE2",
+      "RABIN2",
+      "VOLATILITY 3",
+      "SYSINTERNALS",
+      "MALWARE",
+      "IOC",
+    ],
+    category: "Lab" as const,
+    featured: true,
+    status: "Completed" as const,
+    createdAt: "2025-10-01",
+    coverImage: "/images/projects/malware.jpeg",
+    demoUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7459906909085618176/",
+  },
+
+  {
+    id: "3",
+    slug: "lsass-secret-dump-detection",
+    title: "Détection d'extraction de secrets LSASS",
+    projectType: "Detection Engineering",
+    description:
+      "Lab SOC sur Active Directory : détection du dump LSASS (T1003.001) avec Wazuh et Sysmon.",
+    longDescription: `Construction d'un lab Blue Team complet pour reproduire et détecter l'extraction de secrets depuis le processus LSASS (MITRE ATT&CK T1003.001), technique permettant à un attaquant de voler des identifiants en mémoire sous Windows.
+
+Architecture :
+Windows Server 2016 promu contrôleur de domaine (lab.local), SIEM Wazuh sur Ubuntu avec agent connecté, Sysmon en complément des journaux Windows natifs, stratégies d'audit configurées (Event 4688 avec ligne de commande).
+
+Résultats :
+Les 3 techniques de dump (ProcDump, comsvcs.dll via rundll32, Gestionnaire des tâches) ont été rejouées et détectées, avec remontée des alertes taguées T1003.001.
+
+Point clé : la ligne de commande de l'Event 4688 est déterminante pour distinguer un usage légitime d'un usage offensif.
+
+Rapport technique de 12 pages comprenant l'architecture, les captures et la résolution des difficultés rencontrées (promotion AD, blocage IPv6, agent non connecté, configuration Sysmon).`,
+    tags: [
+      "WAZUH",
+      "SYSMON",
+      "ACTIVE DIRECTORY",
+      "LSASS",
+      "T1003.001",
+      "MITRE ATT&CK",
+    ],
+    category: "Detection" as const,
+    featured: true,
+    status: "Completed" as const,
+    createdAt: "2025-10-15",
+    coverImage: "/images/projects/detection-extraction.jpeg",
+    demoUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7470425477803962368/",
+  },
+
+  {
+    id: "4",
+    slug: "ebios-rm-risk-analysis",
+    title: "Analyse de risques EBIOS RM & Audit",
+    projectType: "GRC / Audit",
+    description:
+      "Étude de cas sur un SI : analyse de risques complète selon EBIOS RM, grille d'audit organisationnel basée sur l'ISO 27001, cartographie des risques et plan de remédiation, restitué sous forme de rapport.",
+    longDescription: `Étude de cas sur un système d'information comprenant :
+
+- Analyse de risques complète selon la méthode EBIOS RM
+- Élaboration d'une grille d'audit organisationnel basée sur ISO 27001
+- Cartographie des risques
+- Proposition d'un plan de remédiation
+
+Le projet est restitué sous forme d'un rapport technique détaillé.`,
+    tags: ["EBIOS RM", "ISO 27001", "ANALYSE DE RISQUES", "AUDIT", "GRC"],
+    category: "Other" as const,
+    featured: true,
+    status: "In Progress" as const,
+    createdAt: "2025-11-01",
+    coverImage: "/images/projects/ebios_rm.png",
+    githubUrl: "https://github.com/Hopeful-DOSSOU/pentestad-engine",
+  },
+
+  {
+    id: "5",
     slug: "detection-engineering-lab",
     title: "Lab de Détection Réseau",
     projectType: "Detection Engineering",
@@ -170,10 +219,12 @@ const FALLBACK_PROJECTS = [
     featured: true,
     status: "In Progress" as const,
     createdAt: "2025-07-01",
+    demoUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7475118226922848257/",
   },
 
   {
-    id: "3",
+    id: "6",
     slug: "active-directory-audit-framework",
     title: "Framework d'Audit Offensif Active Directory",
     projectType: "Projet d'équipe",
@@ -192,10 +243,11 @@ const FALLBACK_PROJECTS = [
     featured: true,
     status: "In Progress" as const,
     createdAt: "2025-08-01",
+    demoUrl: "https://github.com/Hopeful-DOSSOU/pentestad-server",
   },
 
   {
-    id: "4",
+    id: "7",
     slug: "soc-simulator-tryhackme",
     title: "SOC Simulator TryHackMe",
     projectType: "Formation pratique",
@@ -211,7 +263,7 @@ const FALLBACK_PROJECTS = [
   },
 
   {
-    id: "5",
+    id: "8",
     slug: "capture-the-flags",
     title: "Capture The Flags",
     projectType: "Challenges cybersécurité",

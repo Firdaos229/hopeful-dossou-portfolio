@@ -29,44 +29,74 @@ const FALLBACK_PROJECTS = [
     featured: true,
     status: "Completed" as const,
     createdAt: "2025-06-01",
+    coverImage: "/images/projects/siem.jpeg",
   },
 
   {
     id: "2",
-    slug: "detection-engineering-lab",
-    title: "Lab de Détection Réseau",
-    projectType: "Detection Engineering",
+    slug: "malware-analysis-lab",
+    title: "Analyse complète d'un malware",
+    projectType: "Malware Analysis",
     description:
-      "Architecture réseau segmentée avec pfSense, Suricata et Wazuh pour la détection des menaces.",
-    longDescription:
-      "Conception d'un laboratoire de détection réseau basé sur un réseau segmenté utilisant pfSense comme pare-feu et Suricata comme IDS/IPS. Les journaux et alertes sont centralisés dans Wazuh afin de faciliter la détection et l'investigation. Le projet comprend également la création d'un catalogue de règles de détection documentées (scan de ports, brute force SSH, injection SQL) mappées à MITRE ATT&CK avec analyse des vrais positifs et faux positifs.",
-    tags: ["PFSENSE", "SURICATA", "WAZUH", "IDS", "IPS", "MITRE ATT&CK"],
-    category: "Detection" as const,
+      "Analyse statique, dynamique et mémoire d'un malware avec corrélation des artefacts et rédaction d'un rapport technique.",
+    longDescription: `Analyse complète d'un malware en environnement isolé : analyse statique, dynamique et mémoire, corrélation des artefacts et rédaction d'un rapport technique avec IOC.
+
+Au cours de ce projet, j’ai travaillé sur :
+- Analyse statique avec rabin2/radare2
+- Analyse dynamique avec les outils Sysinternals
+- Analyse mémoire avec Volatility 3
+- Corrélation des artefacts système, réseau et mémoire
+- Rédaction d’un rapport technique structuré avec IOC et preuves d’analyse`,
+    tags: [
+      "RADARE2",
+      "RABIN2",
+      "VOLATILITY 3",
+      "SYSINTERNALS",
+      "MALWARE",
+      "IOC",
+    ],
+    category: "Lab" as const,
     featured: true,
-    status: "In Progress" as const,
-    createdAt: "2025-07-01",
+    status: "Completed" as const,
+    createdAt: "2025-10-01",
+    coverImage: "/images/projects/malware.jpeg",
+    demoUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7459906909085618176/",
   },
 
   {
     id: "3",
-    slug: "active-directory-audit-framework",
-    title: "Framework d'Audit Offensif Active Directory",
-    projectType: "Projet d'équipe",
+    slug: "lsass-secret-dump-detection",
+    title: "Détection d'extraction de secrets LSASS",
+    projectType: "Detection Engineering",
     description:
-      "Développement d'un framework Python d'audit Active Directory mappé MITRE ATT&CK.",
-    longDescription:
-      "Projet collaboratif visant à développer un framework Python d'audit Active Directory couvrant les techniques d'attaque modernes : reconnaissance, attaques Kerberos, mouvement latéral et escalade de privilèges. Contribution personnelle : mise en place de l'environnement de test (lab Active Directory sous VMware et Windows Server) ainsi que le développement de scripts d'attaque et de détection.",
+      "Lab SOC sur Active Directory : détection du dump LSASS (T1003.001) avec Wazuh et Sysmon.",
+    longDescription: `Construction d'un lab Blue Team complet pour reproduire et détecter l'extraction de secrets depuis le processus LSASS (MITRE ATT&CK T1003.001), technique permettant à un attaquant de voler des identifiants en mémoire sous Windows.
+
+Architecture :
+Windows Server 2016 promu contrôleur de domaine (lab.local), SIEM Wazuh sur Ubuntu avec agent connecté, Sysmon en complément des journaux Windows natifs, stratégies d'audit configurées (Event 4688 avec ligne de commande).
+
+Résultats :
+Les 3 techniques de dump (ProcDump, comsvcs.dll via rundll32, Gestionnaire des tâches) ont été rejouées et détectées, avec remontée des alertes taguées T1003.001.
+
+Point clé : la ligne de commande de l'Event 4688 est déterminante pour distinguer un usage légitime d'un usage offensif.
+
+Rapport technique de 12 pages comprenant l'architecture, les captures et la résolution des difficultés rencontrées (promotion AD, blocage IPv6, agent non connecté, configuration Sysmon).`,
     tags: [
-      "PYTHON",
+      "WAZUH",
+      "SYSMON",
       "ACTIVE DIRECTORY",
-      "KERBEROS",
-      "WINDOWS SERVER",
+      "LSASS",
+      "T1003.001",
       "MITRE ATT&CK",
     ],
-    category: "Lab" as const,
+    category: "Detection" as const,
     featured: true,
-    status: "In Progress" as const,
-    createdAt: "2025-08-01",
+    status: "Completed" as const,
+    createdAt: "2025-10-15",
+    coverImage: "/images/projects/detection-extraction.jpeg",
+    demoUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7470425477803962368/",
   },
 ];
 

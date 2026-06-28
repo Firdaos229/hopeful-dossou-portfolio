@@ -22,7 +22,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-3xl mx-4 bg-[#0B0F19] border border-[#1E2A3A] rounded-xl overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-3xl max-h-[90vh] mx-4 bg-[#0B0F19] border border-[#1E2A3A] rounded-xl shadow-2xl flex flex-col overflow-hidden">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -33,7 +33,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
         {/* Image */}
         {project.coverImage && (
-          <div className="relative h-56 w-full">
+          <div className="relative h-56 w-full flex-shrink-0">
             <Image
               src={project.coverImage}
               alt={project.title}
@@ -44,7 +44,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         )}
 
         {/* Content */}
-        <div className="p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {/* Project Type + Status */}
           <div className="flex items-center justify-between">
             {project.projectType && (

@@ -6,24 +6,33 @@ import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 
 export const metadata: Metadata = {
   title: {
-    default: "SOC Analyst | Blue Team Portfolio",
-    template: "%s | SOC Analyst Portfolio",
+    default: "Analyste en Cybersécurité | Portfolio",
+    template: "%s | Cybersecurity Analyst Portfolio",
   },
   description:
     "Analyste en cybersécurité spécialisé en défense des systèmes, détection d'incidents et réponse aux menaces.",
-  keywords: ["SOC Analyst", "Blue Team", "Cybersecurity", "SIEM", "Threat Hunting", "Incident Response"],
-  authors: [{ name: "SOC Analyst" }],
+  keywords: [
+    "Cybersecurity Analyst",
+    "Blue Team",
+    "Cybersecurity",
+    "SIEM",
+    "Threat Hunting",
+    "Incident Response",
+  ],
+  authors: [{ name: "Cybersecurity Analyst" }],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    title: "SOC Analyst | Blue Team Portfolio",
-    description: "Analyste en cybersécurité spécialisé en défense des systèmes.",
-    siteName: "SOC Analyst Portfolio",
+    title: "Cybersecurity Analyst | Blue Team Portfolio",
+    description:
+      "Analyste en cybersécurité spécialisé en défense des systèmes.",
+    siteName: "Cybersecurity Analyst Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SOC Analyst | Blue Team Portfolio",
-    description: "Analyste en cybersécurité spécialisé en défense des systèmes.",
+    title: "Cybersecurity Analyst | Blue Team Portfolio",
+    description:
+      "Analyste en cybersécurité spécialisé en défense des systèmes.",
   },
   robots: {
     index: true,
@@ -40,7 +49,11 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
